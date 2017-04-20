@@ -4,7 +4,7 @@ package com.example.administrator.coolweather.db;
  * Created by Administrator on 2017/4/20 0020.
  */
 
-public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
+public class CoolweatherOpenHelper extends SQLiteOpenHelper {
     /**
      * Province表建表语句
      */
@@ -29,7 +29,7 @@ public class CoolWeatherOpenHelper extends SQLiteOpenHelper {
             + "county_code text, "
             + "city_id integer)";
 
-    public CoolWeatherOpenHelper(Context context, String name, CursorFactory factory, int version) {
+    public CoolweatherOpenHelper(Context context, String name, CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 

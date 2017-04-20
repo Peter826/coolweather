@@ -4,7 +4,7 @@ package com.example.administrator.coolweather.model;
  * Created by Administrator on 2017/4/20 0020.
  */
 
-public class CoolWeatherDB {
+public class CoolweatherDB {
     /**
      * 数据库名
      */
@@ -13,26 +13,26 @@ public class CoolWeatherDB {
      * 数据库版本
      */
     public static final int VERSION = 1;
-    private static CoolWeatherDB coolWeatherDB;
+    private static CoolweatherDB CoolweatherDB;
     private SQLiteDatabase db;
 
     /**
      * 将构造方法私有化
      */
-    private CoolWeatherDB(Context context) {
+    private CoolweatherDB(Context context) {
         CoolWeatherOpenHelper dbHelper = new CoolWeatherOpenHelper(context,
                 DB_NAME, null, VERSION);
         db = dbHelper.getWritableDatabase();
     }
 
     /**
-     * 获取CoolWeatherDB的实例。
+     * 获取CoolweatherDB的实例。
      */
-    public synchronized static CoolWeatherDB getInstance(Context context) {
-        if (coolWeatherDB == null) {
-            coolWeatherDB = new CoolWeatherDB(context);
+    public synchronized static CoolweatherDB getInstance(Context context) {
+        if (CoolweatherDB == null) {
+            CoolweatherDB = new CoolweatherDB(context);
         }
-        return coolWeatherDB;
+        return CoolweatherDB;
     }
 
     /**
