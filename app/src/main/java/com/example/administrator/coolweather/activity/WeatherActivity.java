@@ -38,6 +38,14 @@ public class WeatherActivity extends Activity implements OnClickListener {
      * 更新天气按钮
      */
     private Button refreshWeather;
+    /**
+     * 切换城市按钮
+     */
+    private Button switchCity;
+    /**
+     * 更新天气按钮
+     */
+    private Button refreshWeather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +73,10 @@ public class WeatherActivity extends Activity implements OnClickListener {
 // 没有县级代号时就直接显示本地天气
             showWeather();
         }
+        switchCity.setOnClickListener(this);
+        refreshWeather.setOnClickListener(this);
+        switchCity = (Button) findViewById(R.id.switch_city);
+        refreshWeather = (Button) findViewById(R.id.refresh_weather);
         switchCity.setOnClickListener(this);
         refreshWeather.setOnClickListener(this);
     }
@@ -160,5 +172,7 @@ public class WeatherActivity extends Activity implements OnClickListener {
         currentDateText.setText(prefs.getString("current_date", ""));
         weatherInfoLayout.setVisibility(View.VISIBLE);
         cityNameText.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateService.class);
+        startService(intent);
     }
 }
